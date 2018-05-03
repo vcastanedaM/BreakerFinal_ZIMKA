@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +18,43 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BrickBreaker" translatesAutoresizingMaskIntoConstraints="NO" id="ct3-r2-bs1">
+                                <rect key="frame" x="35" y="129" width="330" height="189"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wh_400_logo_eaeo17" translatesAutoresizingMaskIntoConstraints="NO" id="LvA-ie-P6S">
+                                <rect key="frame" x="66" y="292" width="256" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="BrickWall" translatesAutoresizingMaskIntoConstraints="NO" id="F1o-iG-U86">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F1o-iG-U86" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-29" id="7FJ-Ml-axv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LvA-ie-P6S" secondAttribute="bottom" constant="247" id="8MB-wd-NZS"/>
+                            <constraint firstItem="ct3-r2-bs1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="109" id="DP4-0I-Qgb"/>
+                            <constraint firstAttribute="trailing" secondItem="F1o-iG-U86" secondAttribute="trailing" id="Eal-HA-2mz"/>
+                            <constraint firstItem="LvA-ie-P6S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="KLi-4Q-wfx"/>
+                            <constraint firstItem="ct3-r2-bs1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="Kgk-eX-4i2"/>
+                            <constraint firstItem="LvA-ie-P6S" firstAttribute="top" secondItem="F1o-iG-U86" secondAttribute="bottom" id="TRf-vD-Sn2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ct3-r2-bs1" secondAttribute="trailing" constant="10" id="ZW7-iM-XQA"/>
+                            <constraint firstItem="F1o-iG-U86" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-53" id="p0I-ZP-wfL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ct3-r2-bs1" secondAttribute="bottom" constant="349" id="r5H-rO-nXP"/>
+                            <constraint firstItem="F1o-iG-U86" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="s89-0j-zsZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LvA-ie-P6S" secondAttribute="trailing" constant="53" id="vFU-6M-Aqr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BrickBreaker" width="1180" height="312"/>
+        <image name="BrickWall" width="397" height="400"/>
+        <image name="wh_400_logo_eaeo17" width="1080" height="400"/>
+    </resources>
 </document>

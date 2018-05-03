@@ -92,7 +92,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "ball" && bodyBname == "BrickFour" || bodyAname == "BrickFour" && bodyBname == "ball" {
             if bodyAname == "BrickFour" {
                 contact.bodyA.node?.removeFromParent()
-            }
+             }
             else if bodyBname == "BrickFour"{
                 contact.bodyB.node?.removeFromParent()
             }
