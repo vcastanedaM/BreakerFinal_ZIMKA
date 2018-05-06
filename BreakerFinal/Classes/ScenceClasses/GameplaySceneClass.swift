@@ -53,7 +53,19 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         for touch in touches {
             let touchLocation = touch.location(in: self)
             paddle.position.x = touchLocation.x
+           
+            if atPoint(position).name == "MainMenu"{
+            if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = MainMenuScene(fileNamed: "MainMenu") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        // Present the scene
+                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(2)));
+                    }
+                }
         }
+    }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
@@ -108,6 +120,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    
 }
+
+
 
