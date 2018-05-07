@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F499A98209A1A75005651D2 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F499A97209A1A75005651D2 /* Sound.wav */; };
+		3F49FAD6209CBE3000AE6DD8 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F49FAD5209CBE3000AE6DD8 /* SoundPlayer.swift */; };
+		3F49FADA209CC12500AE6DD8 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3F49FAD9209CC12500AE6DD8 /* BackgroundMusic.mp3 */; };
 		6786241F20913BCC00459FBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6786241E20913BCC00459FBE /* AppDelegate.swift */; };
 		6786242320913BCC00459FBE /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6786242220913BCC00459FBE /* Actions.sks */; };
 		6786242720913BCC00459FBE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6786242620913BCC00459FBE /* GameViewController.swift */; };
@@ -22,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F499A97209A1A75005651D2 /* Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sound.wav; sourceTree = "<group>"; };
+		3F49FAD5209CBE3000AE6DD8 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		3F49FAD9209CC12500AE6DD8 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BackgroundMusic.mp3; path = ../../../Desktop/BackgroundMusic.mp3; sourceTree = "<group>"; };
+		3F49FADB209CC17E00AE6DD8 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		6786241B20913BCC00459FBE /* BreakerFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakerFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6786241E20913BCC00459FBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6786242220913BCC00459FBE /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -49,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F49FADC209CC1B000AE6DD8 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				3F499A97209A1A75005651D2 /* Sound.wav */,
+				3F49FADB209CC17E00AE6DD8 /* BackgroundMusic.mp3 */,
+				3F49FAD5209CBE3000AE6DD8 /* SoundPlayer.swift */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		6786241220913BCB00459FBE = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +87,7 @@
 			children = (
 				6786243920917D9400459FBE /* Classes */,
 				6786241E20913BCC00459FBE /* AppDelegate.swift */,
+				3F49FAD9209CC12500AE6DD8 /* BackgroundMusic.mp3 */,
 				6786242220913BCC00459FBE /* Actions.sks */,
 				6786242620913BCC00459FBE /* GameViewController.swift */,
 				6786242820913BCC00459FBE /* Main.storyboard */,
@@ -93,6 +111,7 @@
 		6786243920917D9400459FBE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3F49FADC209CC1B000AE6DD8 /* Sound */,
 				6786243620913C9300459FBE /* New Group */,
 				6786243A20917DD100459FBE /* ScenceClasses */,
 			);
@@ -172,7 +191,9 @@
 				6786242F20913BCF00459FBE /* LaunchScreen.storyboard in Resources */,
 				6786243820917D7700459FBE /* MainMenu.sks in Resources */,
 				6786243E20917F3100459FBE /* GameplayScene.sks in Resources */,
+				3F49FADA209CC12500AE6DD8 /* BackgroundMusic.mp3 in Resources */,
 				6786242320913BCC00459FBE /* Actions.sks in Resources */,
+				3F499A98209A1A75005651D2 /* Sound.wav in Resources */,
 				67C5207620960A01007A9D77 /* DirectionsScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +209,7 @@
 				6786242720913BCC00459FBE /* GameViewController.swift in Sources */,
 				6786241F20913BCC00459FBE /* AppDelegate.swift in Sources */,
 				67C52078209680A0007A9D77 /* DirectionsFile.swift in Sources */,
+				3F49FAD6209CBE3000AE6DD8 /* SoundPlayer.swift in Sources */,
 				6786244020917F8500459FBE /* GameplaySceneClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

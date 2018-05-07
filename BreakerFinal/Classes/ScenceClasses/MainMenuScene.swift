@@ -37,6 +37,7 @@ class MainMenuScene: SKScene {
                         }
                     }
                 }
+            SoundPlayer.shared.setSounds(state: true)
             }
         }
     }

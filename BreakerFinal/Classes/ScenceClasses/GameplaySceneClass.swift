@@ -7,12 +7,16 @@
 //
 
 import SpriteKit
+import AVFoundation
+
 
 class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var ball:SKSpriteNode!
     var paddle: SKSpriteNode!
     var brick = SKSpriteNode()
-   
+    
+
+    
     
     override func didMove(to view: SKView) {
         ball = self.childNode(withName: "Ball") as! SKSpriteNode
@@ -59,6 +63,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "Ball" && bodyBname == "BrickThree" || bodyAname == "BrickThree" && bodyBname == "Ball"{
             if bodyAname == "BrickThree" {
                 contact.bodyA.node?.removeFromParent()
+             
             }
             else if bodyBname == "BrickThree"{
                 contact.bodyB.node?.removeFromParent()
@@ -78,6 +83,13 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+   
+    func run(fileName: String, onNode: SKNode) {
+        if SoundPlayer.shared.getSound(){
+             onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
+        }
+     }
+    
     
 }
 
