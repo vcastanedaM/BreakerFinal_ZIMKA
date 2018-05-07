@@ -33,7 +33,7 @@ class MainMenuScene: SKScene {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
-                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(2)));
+                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(0.5)));
                         }
                     }
                 }
