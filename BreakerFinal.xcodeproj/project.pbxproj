@@ -99,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				6786243720917D7700459FBE /* MainMenu.sks */,
-				6786243D20917F3100459FBE /* GameplayScene.sks */,
 				67C5207520960A01007A9D77 /* DirectionsScene.sks */,
+				6786243D20917F3100459FBE /* GameplayScene.sks */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";

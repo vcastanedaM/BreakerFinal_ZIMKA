@@ -26,15 +26,14 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
-        ball.position = CGPoint(x: frame.midX, y: frame.midY)
+        ball.position = CGPoint(x: frame.midX + 19, y: frame.midY + 23)
         ball.strokeColor = UIColor.black
         ball.fillColor = UIColor.cyan
         ball.name = "ball"
-        
         // physics shape matches ball image
         ball.physicsBody = SKPhysicsBody(circleOfRadius: 10)
         // ignores all forces and impulses
@@ -57,17 +56,6 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
             let touchLocation = touch.location(in: self)
             paddle.position.x = touchLocation.x
            
-            if atPoint(position).name == "MainMenu"{
-            if let view = self.view as! SKView? {
-                    // Load the SKScene from 'GameScene.sks'
-                    if let scene = MainMenuScene(fileNamed: "MainMenu") {
-                        // Set the scale mode to scale to fit the window
-                        scene.scaleMode = .aspectFill
-                        // Present the scene
-                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(2)));
-                    }
-                }
-        }
     }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -85,6 +73,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
             if bodyAname == "Brick" {
                 contact.bodyA.node?.removeFromParent()
             } else if bodyBname == "Brick" {
+                score += 1;
+                scoreLabel?.text = String(score);
                 contact.bodyB.node?.removeFromParent()
             }
         }
@@ -93,11 +83,15 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 contact.bodyA.node?.removeFromParent()
             }
             else if bodyBname == "BrickTwo" {
+                score += 1;
+                scoreLabel?.text = String(score);
                 contact.bodyB.node?.removeFromParent()
             }
         }
         if bodyAname == "ball" && bodyBname == "BrickThree" || bodyAname == "BrickThree" && bodyBname == "ball"{
             if bodyAname == "BrickThree" {
+                score += 1;
+                scoreLabel?.text = "1";
                 contact.bodyA.node?.removeFromParent()
              
             }
@@ -107,6 +101,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         }
         if bodyAname == "ball" && bodyBname == "BrickFour" || bodyAname == "BrickFour" && bodyBname == "ball" {
             if bodyAname == "BrickFour" {
+                score += 1;
+                scoreLabel?.text = String(score);
                 contact.bodyA.node?.removeFromParent()
              }
             else if bodyBname == "BrickFour"{
