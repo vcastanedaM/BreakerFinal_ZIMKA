@@ -14,7 +14,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var paddle: SKSpriteNode!
     var brick = SKSpriteNode()
     var ball = SKShapeNode()
-    var scoreLabel:SKLabelNode?
+    var scoreLabel = SKLabelNode()
     var score = 0
     
     
@@ -28,6 +28,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
         ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
+        self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
+        
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
@@ -72,41 +74,45 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         
         if bodyAname == "ball" && bodyBname == "Brick" || bodyAname == "Brick" && bodyBname == "ball" {
             if bodyAname == "Brick" {
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyA.node?.removeFromParent()
             } else if bodyBname == "Brick" {
-                score += 1;
-                scoreLabel?.text = String(score);
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyB.node?.removeFromParent()
             }
         }
         if bodyAname == "ball" && bodyBname == "BrickTwo" || bodyAname == "BrickTwo" && bodyBname == "ball" {
             if bodyAname == "BrickTwo" {
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyA.node?.removeFromParent()
-            }
-            else if bodyBname == "BrickTwo" {
-                score += 1;
-                scoreLabel?.text = String(score);
+            } else if bodyBname == "BrickTwo" {
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyB.node?.removeFromParent()
             }
         }
         if bodyAname == "ball" && bodyBname == "BrickThree" || bodyAname == "BrickThree" && bodyBname == "ball"{
             if bodyAname == "BrickThree" {
-                score += 1;
-                scoreLabel?.text = "1";
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyA.node?.removeFromParent()
-             
-            }
-            else if bodyBname == "BrickThree"{
+            } else if bodyBname == "BrickThree" {
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyB.node?.removeFromParent()
             }
         }
         if bodyAname == "ball" && bodyBname == "BrickFour" || bodyAname == "BrickFour" && bodyBname == "ball" {
             if bodyAname == "BrickFour" {
-                score += 1;
-                scoreLabel?.text = String(score);
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyA.node?.removeFromParent()
-             }
-            else if bodyBname == "BrickFour"{
+            } else if bodyBname == "BrickFour" {
+                self.score += 1
+                self.scoreLabel.text = "\(self.score)"
                 contact.bodyB.node?.removeFromParent()
             }
         }
