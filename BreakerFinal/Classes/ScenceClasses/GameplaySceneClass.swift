@@ -13,8 +13,9 @@ import AVFoundation
 class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var paddle: SKSpriteNode!
     var brick = SKSpriteNode()
-    
-
+    var ball = SKShapeNode()
+    var scoreLabel:SKLabelNode?
+    var score = 0
     
     
     override func didMove(to view: SKView) {
