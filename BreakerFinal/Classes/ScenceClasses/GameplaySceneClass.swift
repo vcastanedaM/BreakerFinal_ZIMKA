@@ -16,6 +16,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
+
     
     
     override func didMove(to view: SKView) {
@@ -124,8 +125,14 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
                 ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+                self.score -= 2
+                self.scoreLabel.text = "\(self.score)"
             }
         }
+        if score == 24 {
+            ball.removeFromParent()
+        }
+        
     }
    
     func run(fileName: String, onNode: SKNode) {
