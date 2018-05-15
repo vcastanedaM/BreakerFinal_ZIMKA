@@ -129,8 +129,15 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 self.scoreLabel.text = "\(self.score)"
             }
         }
-        if score == 24 {
+        if score == 3 {
             ball.removeFromParent()
+            if let view = self.view as! SKView? {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = youWonFile(fileNamed: "You Won") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    // Present the scene
+                    view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
         }
         
     }
@@ -146,3 +153,5 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
 
 
 
+}
+}
