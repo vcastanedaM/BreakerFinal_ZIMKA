@@ -13,15 +13,18 @@ class youWonFile: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self);
+            if atPoint(location).name == "NextLevel"{
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
-                    if let scene = GameplaySceneClass(fileNamed: "GameplayScene") {
+                    if let scene = LevelTwoFile(fileNamed: "LevelTwo") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
-                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(2)));
-                    }    }
-}
+                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(0.5)));
+                    }
+                }
+            }
 
+}
 }
 }

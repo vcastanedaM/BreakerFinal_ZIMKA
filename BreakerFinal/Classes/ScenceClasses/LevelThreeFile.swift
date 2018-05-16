@@ -1,4 +1,12 @@
 //
+//  LevelTwoFile.swift
+//  BreakerFinal
+//
+//  Created by Victor Castaneda on 5/15/18.
+//  Copyright © 2018 Victor Castaneda. All rights reserved.
+//
+
+//
 //  GameplaySceneClass.swift
 //  BreakerFinal
 //
@@ -10,13 +18,13 @@ import SpriteKit
 import AVFoundation
 
 
-class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
+class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
     var paddle: SKSpriteNode!
     var brick = SKSpriteNode()
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
-
+    
     
     
     override func didMove(to view: SKView) {
@@ -59,8 +67,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         for touch in touches {
             let touchLocation = touch.location(in: self)
             paddle.position.x = touchLocation.x
-           
-    }
+            
+        }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
@@ -129,7 +137,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 self.scoreLabel.text = "\(self.score)"
             }
         }
-        if score == 24 {
+        if score == 28 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
@@ -138,20 +146,20 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                     scene.scaleMode = .aspectFill
                     // Present the scene
                     view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                }
+                
+            }
+            
+            func run(fileName: String, onNode: SKNode) {
+                if SoundPlayer.shared.getSound(){
+                    onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
+                }
+            }
+            
+            
         }
         
+        
+        
     }
-   
-    func run(fileName: String, onNode: SKNode) {
-        if SoundPlayer.shared.getSound(){
-             onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
-        }
-     }
-    
-    
-}
-
-
-
-}
 }
