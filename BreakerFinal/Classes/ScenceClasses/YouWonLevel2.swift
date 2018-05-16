@@ -9,22 +9,22 @@
 import SpriteKit
 
 
-class youWonFile: SKScene {
+class YouWonLevel2: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self);
             if atPoint(location).name == "NextLevel"{
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
-                    if let scene = LevelTwoFile(fileNamed: "LevelTwo") {
+                    if let scene = LevelThreeFile(fileNamed: "LevelThree") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
-                        view.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(0.5)));
+                        view.presentScene(scene, transition: SKTransition.fade(with: .white, duration: 0.5));
                     }
                 }
             }
-}
-}
+        }
+    }
 }
 

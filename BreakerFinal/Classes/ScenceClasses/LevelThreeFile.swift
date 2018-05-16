@@ -36,13 +36,13 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 4, dy: 5))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
-        ball.position = CGPoint(x: frame.midX + 19, y: frame.midY + 23)
+        ball.position = CGPoint(x: frame.midX + 7, y: frame.midY + 23)
         ball.strokeColor = UIColor.black
         ball.fillColor = UIColor.cyan
         ball.name = "ball"
@@ -132,7 +132,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+                ball.physicsBody?.applyImpulse(CGVector(dx: 9, dy: 3))
                 self.score -= 2
                 self.scoreLabel.text = "\(self.score)"
             }
@@ -145,7 +145,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     // Present the scene
-                    view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    view.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: 2));
                 }
                 
             }

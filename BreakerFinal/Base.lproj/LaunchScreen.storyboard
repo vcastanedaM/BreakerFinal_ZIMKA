@@ -18,17 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BrickBreaker" translatesAutoresizingMaskIntoConstraints="NO" id="ct3-r2-bs1">
-                                <rect key="frame" x="37" y="278" width="301" height="66"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BrickBreaker" translatesAutoresizingMaskIntoConstraints="NO" id="ct3-r2-bs1">
+                                <rect key="frame" x="58" y="196" width="301" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchLogo3" translatesAutoresizingMaskIntoConstraints="NO" id="0N1-hC-rJK">
+                                <rect key="frame" x="149" y="334" width="106" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="gfv-Gw-dcI">
+                                <rect key="frame" x="93" y="233" width="117" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="w1L-Xx-idd">
+                                <rect key="frame" x="196" y="233" width="117" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstItem="ct3-r2-bs1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="A74-Jh-Rde"/>
-                            <constraint firstItem="ct3-r2-bs1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="258" id="PGc-p0-p4E"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ct3-r2-bs1" secondAttribute="bottom" constant="323" id="T8f-N5-XiX"/>
-                            <constraint firstItem="ct3-r2-bs1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="V1O-Hw-zYT"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -39,5 +46,8 @@
     </scenes>
     <resources>
         <image name="BrickBreaker" width="975" height="119"/>
+        <image name="LaunchLogo" width="89" height="210"/>
+        <image name="LaunchLogo2" width="89" height="210"/>
+        <image name="LaunchLogo3" width="85" height="129"/>
     </resources>
 </document>

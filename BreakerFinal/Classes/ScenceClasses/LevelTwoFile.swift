@@ -132,16 +132,16 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
-                self.score -= 2
+                ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 9))
+                self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
         }
-        if score == 28 {
+        if score == 7 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
-                if let scene = youWonFile(fileNamed: "You Won") {
+                if let scene = YouWonLevel2(fileNamed: "YouWonLevel2") {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     // Present the scene

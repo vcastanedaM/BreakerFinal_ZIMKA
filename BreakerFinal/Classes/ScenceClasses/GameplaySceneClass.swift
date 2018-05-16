@@ -124,12 +124,12 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
-                self.score -= 2
+                ball.physicsBody?.applyImpulse(CGVector(dx: 8, dy: 5))
+                self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
         }
-        if score == 24 {
+        if score == 5 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
