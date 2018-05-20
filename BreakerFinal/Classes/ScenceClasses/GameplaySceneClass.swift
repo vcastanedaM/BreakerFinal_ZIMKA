@@ -134,20 +134,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
-                if bodyAname == "loseZone"{
-            contact.bodyB.node?.removeFromParent()
-            makeBall()
-            self.life2.removeFromParent()
-            self.physicsWorld.contactDelegate = self
-            self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-            ball.physicsBody?.isDynamic = true
-            ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
-            self.score += 0
-            self.scoreLabel.text = "\(self.score)"
-            }
-            if score == 28 {
-                ball.removeFromParent()
-                if let view = self.view as! SKView? {
+            if score == 24 {
+ball.r               if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
                     if let scene = ImpossibleLevel(fileNamed: "YouWonLevel3") {
                         // Set the scale mode to scale to fit the window

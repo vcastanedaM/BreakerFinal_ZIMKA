@@ -137,7 +137,7 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
                 self.scoreLabel.text = "\(self.score)"
             }
         }
-        if score == 2 {
+        if score == 28 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
