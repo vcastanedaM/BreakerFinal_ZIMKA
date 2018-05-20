@@ -1,12 +1,4 @@
 //
-//  LevelTwoFile.swift
-//  BreakerFinal
-//
-//  Created by Victor Castaneda on 5/15/18.
-//  Copyright © 2018 Victor Castaneda. All rights reserved.
-//
-
-//
 //  GameplaySceneClass.swift
 //  BreakerFinal
 //
@@ -18,17 +10,22 @@ import SpriteKit
 import AVFoundation
 
 
-class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
+class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
     var paddle: SKSpriteNode!
     var brick = SKSpriteNode()
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
+    var enemy1 = SKSpriteNode()
+    var enemy2 = SKSpriteNode()
+    var enemy3 = SKSpriteNode()
+    var life1 = SKSpriteNode()
+    var life2 = SKSpriteNode()
+    var life3 = SKSpriteNode()
     
-    
-    
-    override func didMove(to view: SKView) {
-        paddle = self.childNode(withName: "Paddle") as! SKSpriteNode
+   
+    override func didMove(to view: SKView) {paddle = self.childNode(withName: "Paddle") as!
+        SKSpriteNode
         makeBall()
         let border = SKPhysicsBody(edgeLoopFrom: (view.scene?.frame)!)
         border.friction = 0
@@ -36,8 +33,14 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
+        enemy1 = self.childNode(withName: "enemy1") as! SKSpriteNode
+        enemy2 = self.childNode(withName: "enemy2") as! SKSpriteNode 
+        enemy3 = self.childNode(withName: "enemy3") as! SKSpriteNode
+        life1 = self.childNode(withName: "lifeOne") as! SKSpriteNode
+        life2 = self.childNode(withName: "lifeTwo") as! SKSpriteNode
+        life3 = self.childNode(withName: "lifeThree") as! SKSpriteNode
         
     }
     func makeBall() {
@@ -128,20 +131,37 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "ball" && bodyBname == "loseZone" || bodyAname == "loseZone" && bodyBname == "ball"{
             if bodyAname == "loseZone"{
                 contact.bodyB.node?.removeFromParent()
+                self.life1.removeFromParent()
                 makeBall()
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 9))
+                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+                contact.bodyB.node?.removeFromParent()
+                self.life2.removeFromParent()
+                makeBall()
+                self.physicsWorld.contactDelegate = self
+                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+                ball.physicsBody?.isDynamic = true
+                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+                contact.bodyB.node?.removeFromParent()
+                self.life3.removeFromParent()
+                makeBall()
+                self.physicsWorld.contactDelegate = self
+                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+                ball.physicsBody?.isDynamic = true
+                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+                contact.bodyB.node?.removeFromParent()
+                
                 self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
-        }
-        if score == 2 {
+
+        if score == 28 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
-                if let scene = YouWonLevel2(fileNamed: "YouWonLevel2") {
+                if let scene = ImpossibleLevel(fileNamed: "YouWonLevel3") {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     // Present the scene
@@ -160,6 +180,13 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
         }
         
         
-        
     }
-}
+        }
+        override func update(_ currentTime: TimeInterval) {
+    enemy1.run(SKAction.moveTo(x: ball.position.x, duration: 1.0))
+    enemy2.run(SKAction.moveTo(x: ball.position.x, duration: 2.5))
+    enemy3.run(SKAction.moveTo(x: ball.position.x, duration: 3.0))
+    }
+        }
+
+

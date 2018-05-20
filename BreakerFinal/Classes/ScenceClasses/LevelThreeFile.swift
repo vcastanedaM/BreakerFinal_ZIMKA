@@ -132,24 +132,30 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 9, dy: 3))
-                self.score -= 2
+                ball.physicsBody?.applyImpulse(CGVector(dx: 4, dy: 5))
+                
+                self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
-        }
-        if score == 28 {
-            ball.removeFromParent()
-            if let view = self.view as! SKView? {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = youWonFile(fileNamed: "You Won") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
-                    // Present the scene
-                    view.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: 2));
+            
+            if score == 28 {
+                ball.removeFromParent()
+                if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = ImpossibleLevel(fileNamed: "YouWonLevel3") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        // Present the scene
+                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    }
+                    
                 }
                 
+                func run(fileName: String, onNode: SKNode) {
+                    if SoundPlayer.shared.getSound(){
+                        onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
+                
             }
-            
             func run(fileName: String, onNode: SKNode) {
                 if SoundPlayer.shared.getSound(){
                     onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
@@ -162,4 +168,6 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
         
         
     }
+}
+}
 }

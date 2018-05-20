@@ -16,6 +16,9 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
+    var life1 = SKSpriteNode()
+    var life2 = SKSpriteNode()
+    var life3 = SKSpriteNode()
 
     
     
@@ -30,7 +33,9 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         ball.physicsBody?.isDynamic = true
         ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
-        
+        life1 = self.childNode(withName: "lifeOne") as! SKSpriteNode
+        life2 = self.childNode(withName: "lifeTwo") as! SKSpriteNode
+        life3 = self.childNode(withName: "lifeThree") as! SKSpriteNode
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
@@ -121,16 +126,43 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
             if bodyAname == "loseZone"{
                 contact.bodyB.node?.removeFromParent()
                 makeBall()
+                self.life1.removeFromParent()
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 8, dy: 5))
+                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
                 self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
-        }
-        if score == 5 {
-            ball.removeFromParent()
+                if bodyAname == "loseZone"{
+            contact.bodyB.node?.removeFromParent()
+            makeBall()
+            self.life2.removeFromParent()
+            self.physicsWorld.contactDelegate = self
+            self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+            ball.physicsBody?.isDynamic = true
+            ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+            self.score += 0
+            self.scoreLabel.text = "\(self.score)"
+            }
+            if score == 28 {
+                ball.removeFromParent()
+                if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = ImpossibleLevel(fileNamed: "YouWonLevel3") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        // Present the scene
+                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    }
+                    
+                }
+                
+                func run(fileName: String, onNode: SKNode) {
+                    if SoundPlayer.shared.getSound(){
+                        onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
+                    }
+                }
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
                 if let scene = youWonFile(fileNamed: "You Won") {
@@ -141,8 +173,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         }
         
     }
-   
-    func run(fileName: String, onNode: SKNode) {
+            }
+                func run(fileName: String, onNode: SKNode) {
         if SoundPlayer.shared.getSound(){
              onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
         }
@@ -155,3 +187,4 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
 
 }
 }
+

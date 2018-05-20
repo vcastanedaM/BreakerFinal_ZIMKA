@@ -25,6 +25,10 @@
 		6786244020917F8500459FBE /* GameplaySceneClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6786243F20917F8500459FBE /* GameplaySceneClass.swift */; };
 		6786DCFE20AB439F009AC992 /* You Won.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6786DCFD20AB439F009AC992 /* You Won.sks */; };
 		6786DD0020AB44CF009AC992 /* youWonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6786DCFF20AB44CF009AC992 /* youWonFile.swift */; };
+		678DA07220AE694C00B04553 /* ImpossibleLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 678DA07120AE694C00B04553 /* ImpossibleLevel.sks */; };
+		678DA07420AE696100B04553 /* ImossibleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DA07320AE696100B04553 /* ImossibleLevel.swift */; };
+		678DA07620AE6C0800B04553 /* YouWonLevel3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 678DA07520AE6C0800B04553 /* YouWonLevel3.sks */; };
+		678DA07A20AE708B00B04553 /* YouWonExtremeLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678DA07920AE708B00B04553 /* YouWonExtremeLevel.swift */; };
 		6799D5C720AB57C100814BDB /* LevelTwo.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6799D5C620AB57C100814BDB /* LevelTwo.sks */; };
 		6799D5C920AB5A4000814BDB /* LevelTwoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6799D5C820AB5A4000814BDB /* LevelTwoFile.swift */; };
 		67C5207620960A01007A9D77 /* DirectionsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67C5207520960A01007A9D77 /* DirectionsScene.sks */; };
@@ -53,6 +57,10 @@
 		6786243F20917F8500459FBE /* GameplaySceneClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplaySceneClass.swift; sourceTree = "<group>"; };
 		6786DCFD20AB439F009AC992 /* You Won.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "You Won.sks"; sourceTree = "<group>"; };
 		6786DCFF20AB44CF009AC992 /* youWonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youWonFile.swift; sourceTree = "<group>"; };
+		678DA07120AE694C00B04553 /* ImpossibleLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ImpossibleLevel.sks; sourceTree = "<group>"; };
+		678DA07320AE696100B04553 /* ImossibleLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImossibleLevel.swift; sourceTree = "<group>"; };
+		678DA07520AE6C0800B04553 /* YouWonLevel3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = YouWonLevel3.sks; sourceTree = "<group>"; };
+		678DA07920AE708B00B04553 /* YouWonExtremeLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWonExtremeLevel.swift; sourceTree = "<group>"; };
 		6799D5C620AB57C100814BDB /* LevelTwo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelTwo.sks; sourceTree = "<group>"; };
 		6799D5C820AB5A4000814BDB /* LevelTwoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTwoFile.swift; sourceTree = "<group>"; };
 		67C5207520960A01007A9D77 /* DirectionsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DirectionsScene.sks; sourceTree = "<group>"; };
@@ -121,6 +129,8 @@
 				6799D5C620AB57C100814BDB /* LevelTwo.sks */,
 				6703ED1620ABB913002C1E22 /* YouWonLevel2.sks */,
 				6703ED1220AB8EAD002C1E22 /* LevelThree.sks */,
+				678DA07520AE6C0800B04553 /* YouWonLevel3.sks */,
+				678DA07120AE694C00B04553 /* ImpossibleLevel.sks */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -142,9 +152,11 @@
 				67C52077209680A0007A9D77 /* DirectionsFile.swift */,
 				6786243F20917F8500459FBE /* GameplaySceneClass.swift */,
 				6786DCFF20AB44CF009AC992 /* youWonFile.swift */,
-				6703ED1820ABB929002C1E22 /* YouWonLevel2.swift */,
 				6799D5C820AB5A4000814BDB /* LevelTwoFile.swift */,
+				6703ED1820ABB929002C1E22 /* YouWonLevel2.swift */,
 				6703ED1420ABB233002C1E22 /* LevelThreeFile.swift */,
+				678DA07920AE708B00B04553 /* YouWonExtremeLevel.swift */,
+				678DA07320AE696100B04553 /* ImossibleLevel.swift */,
 			);
 			path = ScenceClasses;
 			sourceTree = "<group>";
@@ -212,8 +224,10 @@
 				6786242C20913BCF00459FBE /* Assets.xcassets in Resources */,
 				6786242F20913BCF00459FBE /* LaunchScreen.storyboard in Resources */,
 				6786243820917D7700459FBE /* MainMenu.sks in Resources */,
+				678DA07620AE6C0800B04553 /* YouWonLevel3.sks in Resources */,
 				6786243E20917F3100459FBE /* GameplayScene.sks in Resources */,
 				6703ED1720ABB913002C1E22 /* YouWonLevel2.sks in Resources */,
+				678DA07220AE694C00B04553 /* ImpossibleLevel.sks in Resources */,
 				6799D5C720AB57C100814BDB /* LevelTwo.sks in Resources */,
 				6786242320913BCC00459FBE /* Actions.sks in Resources */,
 				6786DCFE20AB439F009AC992 /* You Won.sks in Resources */,
@@ -229,7 +243,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678DA07420AE696100B04553 /* ImossibleLevel.swift in Sources */,
 				6786243C20917E1200459FBE /* MainMenuScene.swift in Sources */,
+				678DA07A20AE708B00B04553 /* YouWonExtremeLevel.swift in Sources */,
 				6786242720913BCC00459FBE /* GameViewController.swift in Sources */,
 				6786241F20913BCC00459FBE /* AppDelegate.swift in Sources */,
 				67C52078209680A0007A9D77 /* DirectionsFile.swift in Sources */,
