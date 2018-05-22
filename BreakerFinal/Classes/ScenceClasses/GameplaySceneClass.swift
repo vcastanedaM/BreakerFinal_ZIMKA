@@ -15,12 +15,10 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var brick = SKSpriteNode()
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
+    var lifeLabel = SKLabelNode()
     var score = 0
-    var counter = 0
-    var life1 = SKSpriteNode()
-    var life2 = SKSpriteNode()
-    var life3 = SKSpriteNode()
-
+    var life = 3
+    
     
     
     override func didMove(to view: SKView) {
@@ -34,9 +32,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         ball.physicsBody?.isDynamic = true
         ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
-        life1 = self.childNode(withName: "lifeOne") as! SKSpriteNode
-        life2 = self.childNode(withName: "lifeTwo") as! SKSpriteNode
-        life3 = self.childNode(withName: "lifeThree") as! SKSpriteNode
+        self.lifeLabel = self.childNode(withName: "lifeLabel") as! SKLabelNode
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
@@ -65,8 +61,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         for touch in touches {
             let touchLocation = touch.location(in: self)
             paddle.position.x = touchLocation.x
-           
-    }
+            
+        }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches{
@@ -132,53 +128,32 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 ball.physicsBody?.isDynamic = true
                 ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
                 self.score += 0
-                self.counter += 1
+                self.life -= 1
                 self.scoreLabel.text = "\(self.score)"
             }
-            if counter == 1{
-                self.life1.removeFromParent()
-            }
-            if counter == 2{
-                self.life2.removeFromParent()
-            }
-            if counter == 3{
-                self.life3.removeFromParent()
-            }
-            if counter == 4 {
-                ball.removeFromParent()
-                if let view = self.view as! SKView? {
-                    // Load the SKScene from 'GameScene.sks'
-                    if let scene = YouLostFile(fileNamed: "YouLost") {
-                        // Set the scale mode to scale to fit the window
-                        scene.scaleMode = .aspectFill
-                        // Present the scene
-                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
-                    }
-
+            if score == 3 {
+                        ball.removeFromParent()
+                        if let view = self.view as! SKView? {
+                            // Load the SKScene from 'GameScene.sks'
+                            if let scene = youWonFile(fileNamed: "You Won") {
+                                // Set the scale mode to scale to fit the window
+                                scene.scaleMode = .aspectFill
+                                // Present the scene
+                                view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    
+                }
+                }
             }
         }
-        if score == 28 {
-            ball.removeFromParent()
-            if let view = self.view as! SKView? {
-                // Load the SKScene from 'GameScene.sks'
-                if let scene = YouLostFile(fileNamed: "YouLost") {
-                    // Set the scale mode to scale to fit the window
-                    scene.scaleMode = .aspectFill
-                    // Present the scene
-                    view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
-                }
+            
                 
-            }
-
                 
                 func run(fileName: String, onNode: SKNode) {
                     if SoundPlayer.shared.getSound(){
                         onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
-                        }
                     }
-        
                 }
-    
+                
             }
-    }
+            
 }
