@@ -136,25 +136,21 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                 self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
-            
-            if score == 28 {
+            if score == 5 {
                 ball.removeFromParent()
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
-                    if let scene = YouWonExtremeLevel(fileNamed: "YouWonLevel3") {
+                    if let scene = youWonFile(fileNamed: "You Won") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
-                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                        view.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: 2));
                     }
-                    
-                }
-                
-                func run(fileName: String, onNode: SKNode) {
-                    if SoundPlayer.shared.getSound(){
-                        onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
-                
+
+        }
+        
             }
+            
             func run(fileName: String, onNode: SKNode) {
                 if SoundPlayer.shared.getSound(){
                     onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
@@ -167,6 +163,4 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
         
         
     }
-}
-}
 }
