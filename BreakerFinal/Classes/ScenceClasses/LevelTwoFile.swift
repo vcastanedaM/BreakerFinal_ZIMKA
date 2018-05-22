@@ -24,6 +24,10 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
+    var counter = 0
+    var life1 = SKSpriteNode()
+    var life2 = SKSpriteNode()
+    var life3 = SKSpriteNode()
     
     
     
@@ -36,9 +40,11 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 10))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
-        
+        life1 = self.childNode(withName: "lifeOne") as! SKSpriteNode
+        life2 = self.childNode(withName: "lifeTwo") as! SKSpriteNode
+        life3 = self.childNode(withName: "lifeThree") as! SKSpriteNode
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
@@ -132,12 +138,22 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 9))
+                ball.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 10))
                 self.score += 0
+                self.counter += 1
                 self.scoreLabel.text = "\(self.score)"
             }
+            if counter == 1{
+                self.life1.removeFromParent()
+            }
+            if counter == 2{
+                self.life2.removeFromParent()
+            }
+            if counter == 3{
+                self.life3.removeFromParent()
+            }
         }
-        if score == 28 {
+        if score == 4 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'

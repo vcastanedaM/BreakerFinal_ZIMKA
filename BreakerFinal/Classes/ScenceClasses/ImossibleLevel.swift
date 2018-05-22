@@ -23,9 +23,7 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
     var life2 = SKSpriteNode()
     var life3 = SKSpriteNode()
     
-   
-    override func didMove(to view: SKView) {paddle = self.childNode(withName: "Paddle") as!
-        SKSpriteNode
+   override func didMove(to view: SKView) {paddle = self.childNode(withName: "Paddle") as!SKSpriteNode
         makeBall()
         let border = SKPhysicsBody(edgeLoopFrom: (view.scene?.frame)!)
         border.friction = 0
@@ -33,7 +31,7 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 20, dy: 20))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 15, dy: 15))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         enemy1 = self.childNode(withName: "enemy1") as! SKSpriteNode
         enemy2 = self.childNode(withName: "enemy2") as! SKSpriteNode 
@@ -136,23 +134,8 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
+                ball.physicsBody?.applyImpulse(CGVector(dx: 15, dy: 15))
                 contact.bodyB.node?.removeFromParent()
-                self.life2.removeFromParent()
-                makeBall()
-                self.physicsWorld.contactDelegate = self
-                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-                ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
-                contact.bodyB.node?.removeFromParent()
-                self.life3.removeFromParent()
-                makeBall()
-                self.physicsWorld.contactDelegate = self
-                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-                ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
-                contact.bodyB.node?.removeFromParent()
-                
                 self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }

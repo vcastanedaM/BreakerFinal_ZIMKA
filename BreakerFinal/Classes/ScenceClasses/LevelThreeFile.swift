@@ -36,7 +36,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 4, dy: 5))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 12))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         
     }
@@ -132,8 +132,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                 self.physicsWorld.contactDelegate = self
                 self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
                 ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 4, dy: 5))
-                
+                ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 12))
                 self.score += 0
                 self.scoreLabel.text = "\(self.score)"
             }
@@ -142,7 +141,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                 ball.removeFromParent()
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
-                    if let scene = LevelThreeFile(fileNamed: "YouWonLevel3") {
+                    if let scene = YouWonExtremeLevel(fileNamed: "YouWonLevel3") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
