@@ -25,11 +25,6 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
     var scoreLabel = SKLabelNode()
     var score = 0
     var counter = 0
-    var life1 = SKSpriteNode()
-    var life2 = SKSpriteNode()
-    var life3 = SKSpriteNode()
-    
-    
     
     override func didMove(to view: SKView) {
         paddle = self.childNode(withName: "Paddle") as! SKSpriteNode
@@ -40,11 +35,8 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 10))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 7))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
-        life1 = self.childNode(withName: "lifeOne") as! SKSpriteNode
-        life2 = self.childNode(withName: "lifeTwo") as! SKSpriteNode
-        life3 = self.childNode(withName: "lifeThree") as! SKSpriteNode
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
@@ -134,26 +126,18 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "ball" && bodyBname == "loseZone" || bodyAname == "loseZone" && bodyBname == "ball"{
             if bodyAname == "loseZone"{
                 contact.bodyB.node?.removeFromParent()
-                makeBall()
-                self.physicsWorld.contactDelegate = self
-                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-                ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 10))
-                self.score += 0
-                self.counter += 1
-                self.scoreLabel.text = "\(self.score)"
-            }
-            if counter == 1{
-                self.life1.removeFromParent()
-            }
-            if counter == 2{
-                self.life2.removeFromParent()
-            }
-            if counter == 3{
-                self.life3.removeFromParent()
+                if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = YouLostFile(fileNamed: "YouLost") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        // Present the scene
+                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    }
+                }
             }
         }
-        if score == 4 {
+        if score == 5 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
@@ -163,19 +147,10 @@ class LevelTwoFile: SKScene, SKPhysicsContactDelegate {
                     // Present the scene
                     view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
                 }
-                
             }
-            
-            func run(fileName: String, onNode: SKNode) {
-                if SoundPlayer.shared.getSound(){
-                    onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
-                }
-            }
-            
-            
         }
         
         
-        
     }
+    
 }

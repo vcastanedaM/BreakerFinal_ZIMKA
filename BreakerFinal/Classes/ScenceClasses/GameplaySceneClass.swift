@@ -16,6 +16,8 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
+    var lifeLabel = SKLabelNode()
+    var life = 3
     
     
     
@@ -28,8 +30,9 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 7, dy: 5))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
+        self.lifeLabel = self.childNode(withName: "lifeLabel") as! SKLabelNode
         
     }
     func makeBall() {
@@ -120,13 +123,15 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "ball" && bodyBname == "loseZone" || bodyAname == "loseZone" && bodyBname == "ball"{
             if bodyAname == "loseZone"{
                 contact.bodyB.node?.removeFromParent()
-                makeBall()
-                self.physicsWorld.contactDelegate = self
-                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-                ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 8, dy: 5))
-                self.score += 0
-                self.scoreLabel.text = "\(self.score)"
+                if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = YouLostFile(fileNamed: "YouLost") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        // Present the scene
+                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    }
+                }
             }
         }
         if score == 5 {
@@ -139,19 +144,12 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                     // Present the scene
                     view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
                 }
-                
             }
-            
-            func run(fileName: String, onNode: SKNode) {
-                if SoundPlayer.shared.getSound(){
-                    onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
                 }
-            }
             
             
         }
-        
-        
-        
-    }
-}
+    
+        }
+
+

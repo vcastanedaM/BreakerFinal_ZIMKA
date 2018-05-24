@@ -36,7 +36,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 12))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 9, dy: 9))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         
     }
@@ -128,39 +128,31 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "ball" && bodyBname == "loseZone" || bodyAname == "loseZone" && bodyBname == "ball"{
             if bodyAname == "loseZone"{
                 contact.bodyB.node?.removeFromParent()
-                makeBall()
-                self.physicsWorld.contactDelegate = self
-                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-                ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 12, dy: 12))
-                self.score += 0
-                self.scoreLabel.text = "\(self.score)"
-            }
-            if score == 5 {
-                ball.removeFromParent()
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
-                    if let scene = youWonFile(fileNamed: "You Won") {
+                    if let scene = YouLostFile(fileNamed: "YouLost") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
-                        view.presentScene(scene, transition: SKTransition.doorsOpenHorizontal(withDuration: 2));
+                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
                     }
-
-        }
-        
-            }
-            
-            func run(fileName: String, onNode: SKNode) {
-                if SoundPlayer.shared.getSound(){
-                    onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
                 }
             }
-            
-            
         }
-        
+        if score == 5 {
+            ball.removeFromParent()
+            if let view = self.view as! SKView? {
+                // Load the SKScene from 'GameScene.sks'
+                if let scene = YouWonExtremeLevel(fileNamed: "YouWonLevel3") {
+                    // Set the scale mode to scale to fit the window
+                    scene.scaleMode = .aspectFill
+                    // Present the scene
+                    view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                }
+            }
+        }
         
         
     }
+    
 }

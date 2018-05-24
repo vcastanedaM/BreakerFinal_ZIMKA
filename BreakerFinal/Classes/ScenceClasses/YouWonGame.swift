@@ -1,18 +1,18 @@
 //
-//  YouLostFile.swift
+//  YouWonGame.swift
 //  BreakerFinal
 //
-//  Created by Victor Castaneda on 5/21/18.
+//  Created by Victor Castaneda on 5/23/18.
 //  Copyright © 2018 Victor Castaneda. All rights reserved.
 //
 
 import SpriteKit
 
-class YouLostFile: SKScene {
+class YouWonGame: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self);
-            if atPoint(location).name == "StartOver"{
+            if atPoint(location).name == "MainMenu"{
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
                     if let scene = GameplaySceneClass(fileNamed: "GameplayScene") {
@@ -26,4 +26,3 @@ class YouLostFile: SKScene {
         }
     }
 }
-

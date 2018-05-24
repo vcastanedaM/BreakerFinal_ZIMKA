@@ -31,7 +31,7 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 15, dy: 15))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 11, dy: 11))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         enemy1 = self.childNode(withName: "enemy1") as! SKSpriteNode
         enemy2 = self.childNode(withName: "enemy2") as! SKSpriteNode 
@@ -129,47 +129,35 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
         if bodyAname == "ball" && bodyBname == "loseZone" || bodyAname == "loseZone" && bodyBname == "ball"{
             if bodyAname == "loseZone"{
                 contact.bodyB.node?.removeFromParent()
-                self.life1.removeFromParent()
-                makeBall()
-                self.physicsWorld.contactDelegate = self
-                self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
-                ball.physicsBody?.isDynamic = true
-                ball.physicsBody?.applyImpulse(CGVector(dx: 15, dy: 15))
-                contact.bodyB.node?.removeFromParent()
-                self.score += 0
-                self.scoreLabel.text = "\(self.score)"
+                if let view = self.view as! SKView? {
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = YouLostFile(fileNamed: "YouLost") {
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        // Present the scene
+                        view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
+                    }
+                }
             }
-
-        if score == 28 {
+        }
+        if score == 5 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
-                if let scene = ImpossibleLevel(fileNamed: "YouWonLevel3") {
+                if let scene = YouWonGame(fileNamed: "YouWonGame") {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     // Present the scene
                     view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2));
                 }
-                
             }
-            
-            func run(fileName: String, onNode: SKNode) {
-                if SoundPlayer.shared.getSound(){
-                    onNode.run(SKAction.playSoundFileNamed(fileName, waitForCompletion:false))
-                }
-            }
-            
-            
         }
-        
-        
     }
-        }
+        
         override func update(_ currentTime: TimeInterval) {
     enemy1.run(SKAction.moveTo(x: ball.position.x, duration: 1.0))
     enemy2.run(SKAction.moveTo(x: ball.position.x, duration: 2.5))
     enemy3.run(SKAction.moveTo(x: ball.position.x, duration: 3.0))
     }
         }
-
 

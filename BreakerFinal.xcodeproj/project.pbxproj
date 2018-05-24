@@ -35,6 +35,8 @@
 		67B8958520B3308A0075A5B0 /* YouLostFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B8958420B3308A0075A5B0 /* YouLostFile.swift */; };
 		67C5207620960A01007A9D77 /* DirectionsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67C5207520960A01007A9D77 /* DirectionsScene.sks */; };
 		67C52078209680A0007A9D77 /* DirectionsFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C52077209680A0007A9D77 /* DirectionsFile.swift */; };
+		67CDFCC520B63CC4008D3F74 /* YouWonGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 67CDFCC420B63CC4008D3F74 /* YouWonGame.sks */; };
+		67CDFCC720B63CD6008D3F74 /* YouWonGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CDFCC620B63CD6008D3F74 /* YouWonGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		67B8958420B3308A0075A5B0 /* YouLostFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouLostFile.swift; sourceTree = "<group>"; };
 		67C5207520960A01007A9D77 /* DirectionsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DirectionsScene.sks; sourceTree = "<group>"; };
 		67C52077209680A0007A9D77 /* DirectionsFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFile.swift; sourceTree = "<group>"; };
+		67CDFCC420B63CC4008D3F74 /* YouWonGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = YouWonGame.sks; sourceTree = "<group>"; };
+		67CDFCC620B63CD6008D3F74 /* YouWonGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWonGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 				6703ED1220AB8EAD002C1E22 /* LevelThree.sks */,
 				678DA07520AE6C0800B04553 /* YouWonLevel3.sks */,
 				678DA07120AE694C00B04553 /* ImpossibleLevel.sks */,
+				67CDFCC420B63CC4008D3F74 /* YouWonGame.sks */,
 				67B8958220B3306F0075A5B0 /* YouLost.sks */,
 			);
 			path = "New Group";
@@ -162,6 +167,7 @@
 				6703ED1420ABB233002C1E22 /* LevelThreeFile.swift */,
 				678DA07920AE708B00B04553 /* YouWonExtremeLevel.swift */,
 				678DA07320AE696100B04553 /* ImossibleLevel.swift */,
+				67CDFCC620B63CD6008D3F74 /* YouWonGame.swift */,
 				67B8958420B3308A0075A5B0 /* YouLostFile.swift */,
 			);
 			path = ScenceClasses;
@@ -233,6 +239,7 @@
 				678DA07620AE6C0800B04553 /* YouWonLevel3.sks in Resources */,
 				6786243E20917F3100459FBE /* GameplayScene.sks in Resources */,
 				6703ED1720ABB913002C1E22 /* YouWonLevel2.sks in Resources */,
+				67CDFCC520B63CC4008D3F74 /* YouWonGame.sks in Resources */,
 				678DA07220AE694C00B04553 /* ImpossibleLevel.sks in Resources */,
 				6799D5C720AB57C100814BDB /* LevelTwo.sks in Resources */,
 				6786242320913BCC00459FBE /* Actions.sks in Resources */,
@@ -250,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67CDFCC720B63CD6008D3F74 /* YouWonGame.swift in Sources */,
 				678DA07420AE696100B04553 /* ImossibleLevel.swift in Sources */,
 				6786243C20917E1200459FBE /* MainMenuScene.swift in Sources */,
 				678DA07A20AE708B00B04553 /* YouWonExtremeLevel.swift in Sources */,
@@ -407,13 +415,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TKV72KDQNJ;
 				INFOPLIST_FILE = BreakerFinal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VC.BreakerFinal;
+				PRODUCT_BUNDLE_IDENTIFIER = "-ac-VC.BreakerFinal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -425,13 +433,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TKV72KDQNJ;
 				INFOPLIST_FILE = BreakerFinal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VC.BreakerFinal;
+				PRODUCT_BUNDLE_IDENTIFIER = "-ac-VC.BreakerFinal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
