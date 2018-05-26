@@ -10,16 +10,21 @@ import SpriteKit
 import AVFoundation
 
 
-class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
+class InsaneLevel: SKScene, SKPhysicsContactDelegate {
     var paddle: SKSpriteNode!
     var brick = SKSpriteNode()
     var ball = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var score = 0
     var enemy1 = SKSpriteNode()
+    var enemy2 = SKSpriteNode()
+    var enemy3 = SKSpriteNode()
+    var enemy4 = SKSpriteNode()
+    var enemy5 = SKSpriteNode()
+
 
     
-   override func didMove(to view: SKView) {paddle = self.childNode(withName: "Paddle") as!SKSpriteNode
+    override func didMove(to view: SKView) {paddle = self.childNode(withName: "Paddle") as!SKSpriteNode
         makeBall()
         let border = SKPhysicsBody(edgeLoopFrom: (view.scene?.frame)!)
         border.friction = 0
@@ -27,10 +32,13 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 11, dy: 11))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 13, dy: 13))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         enemy1 = self.childNode(withName: "enemy1") as! SKSpriteNode
-        
+        enemy2 = self.childNode(withName: "enemy2") as! SKSpriteNode
+        enemy3 = self.childNode(withName: "enemy3") as! SKSpriteNode
+        enemy4 = self.childNode(withName: "enemy4") as! SKSpriteNode
+        enemy5 = self.childNode(withName: "enemy5") as! SKSpriteNode
     }
     func makeBall() {
         ball = SKShapeNode(circleOfRadius:10)
@@ -131,11 +139,11 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        if score == 3{
+        if score == 28{
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
-                if let scene = InsaneLevel(fileNamed: "InsaneLevel") {
+                if let scene = YouWonGame(fileNamed: "YouWonGame") {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     // Present the scene
@@ -144,9 +152,13 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-        
-        override func update(_ currentTime: TimeInterval) {
-    enemy1.run(SKAction.moveTo(x: ball.position.x, duration: 2.0))
+    
+    override func update(_ currentTime: TimeInterval) {
+        enemy1.run(SKAction.moveTo(x: ball.position.x, duration: 2.0))
+        enemy2.run(SKAction.moveTo(x: ball.position.x, duration: 1.0))
+        enemy3.run(SKAction.moveTo(x: ball.position.x, duration: 1.5))
+        enemy4.run(SKAction.moveTo(x: ball.position.x, duration: 1.25))
+        enemy5.run(SKAction.moveTo(x: ball.position.x, duration: 0.5))
     }
-        }
+}
 

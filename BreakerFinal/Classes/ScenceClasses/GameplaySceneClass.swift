@@ -32,7 +32,6 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
         ball.physicsBody?.isDynamic = true
         ball.physicsBody?.applyImpulse(CGVector(dx: 5, dy: 5))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
-        self.lifeLabel = self.childNode(withName: "lifeLabel") as! SKLabelNode
         
     }
     func makeBall() {
@@ -134,7 +133,7 @@ class GameplaySceneClass: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        if score == 5 {
+        if score == 4 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'

@@ -15,7 +15,7 @@ class YouWonGame: SKScene {
             if atPoint(location).name == "MainMenu"{
                 if let view = self.view as! SKView? {
                     // Load the SKScene from 'GameScene.sks'
-                    if let scene = GameplaySceneClass(fileNamed: "GameplayScene") {
+                    if let scene = MainMenuScene(fileNamed: "MainMenu") {
                         // Set the scale mode to scale to fit the window
                         scene.scaleMode = .aspectFill
                         // Present the scene
