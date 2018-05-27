@@ -139,7 +139,7 @@ class LevelThreeFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        if score == 5 {
+        if score == 28 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'

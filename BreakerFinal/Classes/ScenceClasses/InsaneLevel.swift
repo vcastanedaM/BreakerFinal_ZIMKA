@@ -32,7 +32,7 @@ class InsaneLevel: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 13, dy: 13))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 8, dy: 8))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         enemy1 = self.childNode(withName: "enemy1") as! SKSpriteNode
         enemy2 = self.childNode(withName: "enemy2") as! SKSpriteNode
@@ -139,7 +139,7 @@ class InsaneLevel: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        if score == 28{
+        if score == 28 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'

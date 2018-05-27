@@ -27,7 +27,7 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         ball.physicsBody?.isDynamic = true
-        ball.physicsBody?.applyImpulse(CGVector(dx: 11, dy: 11))
+        ball.physicsBody?.applyImpulse(CGVector(dx: 8, dy: 8))
         self.scoreLabel = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         enemy1 = self.childNode(withName: "enemy1") as! SKSpriteNode
         
@@ -131,11 +131,11 @@ class ImpossibleLevel: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
-        if score == 3{
+        if score == 28 {
             ball.removeFromParent()
             if let view = self.view as! SKView? {
                 // Load the SKScene from 'GameScene.sks'
-                if let scene = InsaneLevel(fileNamed: "InsaneLevel") {
+                if let scene = YouWonImpossible(fileNamed: "YouWonImpossible") {
                     // Set the scale mode to scale to fit the window
                     scene.scaleMode = .aspectFill
                     // Present the scene
